@@ -1,6 +1,5 @@
 import { formatDistanceToNow } from "date-fns"
 
-// Define props type using the ParkingSpotType interface
 interface ParkingSpotProps {
   spot: {
     id: number
@@ -10,12 +9,10 @@ interface ParkingSpotProps {
 }
 
 export default function ParkingSpot({ spot }: ParkingSpotProps) {
-  // Determine background color based on status
   const bgColor = spot.isOccupied ? "bg-red-100" : "bg-green-100"
   const statusColor = spot.isOccupied ? "text-red-600" : "text-green-600"
   const borderColor = spot.isOccupied ? "border-red-200" : "border-green-200"
 
-  // Format the last updated time as "X minutes ago"
   const timeAgo = formatDistanceToNow(new Date(spot.lastUpdated), {
     addSuffix: true,
     includeSeconds: true,
@@ -50,4 +47,3 @@ export default function ParkingSpot({ spot }: ParkingSpotProps) {
     </div>
   )
 }
-

@@ -3,7 +3,6 @@
 import { useState, useEffect } from "react"
 import ParkingSpot from "@/components/parking-spot"
 
-// Define TypeScript interface for parking spots
 interface ParkingSpotType {
   id: number
   isOccupied: boolean
@@ -11,24 +10,19 @@ interface ParkingSpotType {
 }
 
 export default function Home() {
-  // Initialize state with 5 parking spots
   const [parkingSpots, setParkingSpots] = useState<ParkingSpotType[]>(() => {
-    // Create initial array of 5 spots with random statuses
     return Array.from({ length: 5 }, (_, index) => ({
       id: index + 1,
-      isOccupied: Math.random() > 0.5, // Randomly set as occupied or vacant
+      isOccupied: Math.random() > 0.5,
       lastUpdated: new Date(),
     }))
   })
 
   useEffect(() => {
-    // Set up interval to update a random spot every 5 seconds
     const interval = setInterval(() => {
       setParkingSpots((currentSpots) => {
         const newSpots = [...currentSpots]
-        // Select a random spot to update
         const randomIndex = Math.floor(Math.random() * newSpots.length)
-        // Toggle its status and update timestamp
         newSpots[randomIndex] = {
           ...newSpots[randomIndex],
           isOccupied: !newSpots[randomIndex].isOccupied,
@@ -38,7 +32,6 @@ export default function Home() {
       })
     }, 5000)
 
-    // Clean up interval on component unmount
     return () => clearInterval(interval)
   }, [])
 
@@ -64,4 +57,3 @@ export default function Home() {
     </main>
   )
 }
-
