@@ -50,7 +50,7 @@ export default function Home() {
         <div className="mb-8 p-4 bg-blue-50 rounded-lg border border-blue-100">
           <p className="text-sm text-blue-800">
             This system simulates an IoT parking solution using frontend logic only. In a real implementation, these
-            status updates would come from sensors via an API, but here we're using JavaScript intervals to mimic those
+            status updates would come from sensors via an API, but here we&apos;re using JavaScript intervals to mimic those
             changes.
           </p>
         </div>
